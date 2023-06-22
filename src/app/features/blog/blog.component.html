@@ -1,0 +1,20 @@
+
+<section class="relative py-20">
+    <img class="hidden lg:block absolute top-0 left-0 mt-20" src="zeus-assets/icons/dots/blue-dot-left-bars.svg" alt="">
+    <img class="hidden lg:block absolute top-0 right-0 mt-52" src="zeus-assets/icons/dots/yellow-dot-right-shield.svg" alt="">
+    <div class="container px-4 mx-auto">
+        <div class="max-w-3xl mb-20 mx-auto text-center">
+            <span class="text-xs text-blue-400 font-semibold">What&apos;s new at Shuffle</span>
+            <h2 class="mt-8 mb-10 text-4xl font-semibold font-heading">Lorem ipsum dolor sit amet consectutar domor at elis</h2>
+            <p class="text-xl text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa nibh, pulvinar vitae aliquet nec, accumsan aliquet orci.</p>
+        </div>
+        <div class="flex flex-wrap -m-3 mb-16">
+
+            <app-post *ngFor="let post of posts | async" [post]="post">
+
+            </app-post>
+
+        </div>
+        <div class="text-center"><a class="px-6 py-4 text-sm text-white font-semibold bg-red-400 hover:bg-red-300 rounded transition duration-200" href="#">View More Articles</a></div>
+    </div>
+</section>

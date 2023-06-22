@@ -1,0 +1,22 @@
+:host {
+  @apply w-full md:w-1/2 md:w-1/5 p-3
+}
+
+.post {
+  height: 250px;
+  &:hover {
+    cursor: pointer;
+  }
+  overflow-y: auto;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+
