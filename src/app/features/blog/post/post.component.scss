@@ -1,11 +1,12 @@
 :host {
-  @apply w-full md:w-1/2 md:w-1/5 p-3
+  // @apply w-full md:w-1/2 md:w-1/5 p-3
 }
 
 .post {
-  height: 250px;
+  height: 300px;
   &:hover {
     cursor: pointer;
+    background-color: whitesmoke;
   }
   overflow-y: auto;
 }

@@ -10,7 +10,7 @@ import { BlogService } from "../../core/services/blog.service";
 })
 export class BlogComponent {
 
-  posts: Observable<Array<Post>> | undefined;
+  posts: Observable<Array<Post>>;
 
   constructor(private blogService: BlogService) {
     this.posts = blogService.fetchPosts();

@@ -51,4 +51,8 @@ export class PostComponent {
     this.displayItem = (this.post as any)[this.key];
   }
 
+  numSequence(n: number): Array<number> {
+    return Array(n);
+  }
+
 }
