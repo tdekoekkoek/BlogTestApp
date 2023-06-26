@@ -1,26 +1,27 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, concatMap } from 'rxjs/operators';
-import { Observable, EMPTY, of } from 'rxjs';
+import { catchError, map, mergeMap } from 'rxjs/operators';
 import { BlogActions } from './blog.actions';
-
+import { BlogService } from "../../core/services/blog.service";
 
 @Injectable()
 export class BlogEffects {
 
-  loadBlogs$ = createEffect(() => {
-    return this.actions$.pipe(
+  constructor(private actions$: Actions, private blogService: BlogService) {}
 
-      ofType(BlogActions.loadBlogs),
-      concatMap(() =>
-        /** An EMPTY observable only emits completion. Replace with your own observable API request */
-        EMPTY.pipe(
-          map(data => BlogActions.loadBlogsSuccess({ data })),
-          catchError(error => of(BlogActions.loadBlogsFailure({ error }))))
-      )
-    );
-  });
+  loadPosts$ = createEffect(
+    (actions$: Actions = inject(Actions), blogService: BlogService = inject(BlogService)) => {
+      return actions$.pipe(
+        ofType(BlogActions.loadPosts),
+        mergeMap(() =>
+          blogService.fetchPosts().pipe(
+            map((response) => BlogActions.loadPostsSuccess({posts: response})),
+            catchError(() => [])
+          )
+        )
+      );
+    },
+    { functional: true }
+  );
 
-
-  constructor(private actions$: Actions) {}
 }

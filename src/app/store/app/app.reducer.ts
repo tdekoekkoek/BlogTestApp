@@ -1,25 +1,24 @@
-import { createFeature, createReducer, on } from '@ngrx/store';
-import { AppActions } from './app.actions';
+import { ActionReducerMap, createReducer, on } from '@ngrx/store';
 
 export const appFeatureKey = 'app';
 
-export interface State {
+export interface RootState {
+  app: AppState
+}
+
+export interface AppState {
   currentName: string;
 }
 
-export const initialState: State = {
+export const initialState: AppState = {
   currentName: 'ABC'
 };
 
 export const reducer = createReducer(
   initialState,
-  on(AppActions.loadApps, state => state),
-  on(AppActions.loadAppsSuccess, (state, action) => state),
-  on(AppActions.loadAppsFailure, (state, action) => state),
 );
 
-// export const appFeature = createFeature({
-//   name: appFeatureKey,
-//   reducer,
-// });
+export const reducers: ActionReducerMap<RootState> = {
+  app: reducer,
+};
 
