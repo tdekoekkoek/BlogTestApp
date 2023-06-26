@@ -3,6 +3,7 @@ import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs';
 
 import { BlogEffects } from './blog.effects';
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
 describe('BlogEffects', () => {
   let actions$: Observable<any>;
@@ -10,6 +11,7 @@ describe('BlogEffects', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [ HttpClientTestingModule,],
       providers: [
         BlogEffects,
         provideMockActions(() => actions$)

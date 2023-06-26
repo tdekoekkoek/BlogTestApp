@@ -9,7 +9,7 @@ export interface BlogState {
   latestPosts: Array<Post>;
 }
 
-const initialState: BlogState = {
+export const initialState: BlogState = {
   loaded: false,
   latestPosts: []
 };

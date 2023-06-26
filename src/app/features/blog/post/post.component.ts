@@ -21,7 +21,7 @@ import { animate, style, transition, trigger } from "@angular/animations";
 
 export class PostComponent {
 
-  @Input() post!: Post;
+  @Input() post: Post = new Post();
   status = 'void';
   propIndex: number = 2;
   propCount = 0;
