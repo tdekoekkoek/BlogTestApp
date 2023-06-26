@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { StoreModule } from '@ngrx/store';
+import { AppStoreModule } from "./store/app-store.module";
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { StoreModule } from '@ngrx/store';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({}, {})
+    AppStoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
